@@ -12,15 +12,15 @@ router.route('/').get(getComments).post(createComment);
 
 // /api/applications/:applicationId
 router
-  .route('/:applicationId')
+  .route('/:commentId')
   .get(getSingleComment)
   .put(updateComment)
   .delete(deleteComment);
 
 // /api/applications/:applicationId/tags
-// router.route('/:applicationId/tags').post(addTag);
+router.route('/:commentId/reaction').post(addReaction);
 
-// // /api/applications/:applicationId/tags/:tagId
-// router.route('/:applicationId/tags/:tagId').delete(removeTag);
+// /api/applications/:applicationId/tags/:tagId
+router.route('/:commentId/reactions/:reactionId').delete(removeReaction);
 
 module.exports = router;
