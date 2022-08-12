@@ -4,18 +4,11 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
   { 
     user: {
-    first: String,
-    last: String,
-    age: Number,
+    type: String,
     unique: true,
     required: true,
     trim: true,
-    reactions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Comments',
-      },
-    ],
+   
   },
   email: {
     type: String,
@@ -27,6 +20,12 @@ const userSchema = new Schema(
       "Enter a valid email address",
     ],
   },
+  // reactions: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Comments',
+  //   },
+  // ],
     comments: [
       {
         type: Schema.Types.ObjectId,
